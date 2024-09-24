@@ -36,11 +36,14 @@ export class AuthService {
         return { error: 'Invalid credentials' }; // Return an error message instead of throwing an exception
       }
   
-  
+      
       // Password validation (uncomment these lines when you integrate real password logic)
       const trimmedPassword = password.trim();
       const isPasswordValid = await bcrypt.compare(trimmedPassword, user.password);
-  
+   console.log('isPasswordValid',isPasswordValid);
+   console.log('trimmedPassword',trimmedPassword);
+
+   
       if (!isPasswordValid) {
         return { error: 'Invalid credentials' }; // Return an error message instead of throwing an exception
       }
