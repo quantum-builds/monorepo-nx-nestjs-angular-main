@@ -39,12 +39,12 @@ export class AuthService {
       const hashedPassword = await bcrypt.hash('admin123', 10);
   
       // Password validation (uncomment these lines when you integrate real password logic)
-      // const trimmedPassword = password.trim();
-      // const isPasswordValid = await bcrypt.compare(trimmedPassword, hashedPassword);
+      const trimmedPassword = password.trim();
+      const isPasswordValid = await bcrypt.compare(trimmedPassword, hashedPassword);
   
-      // if (!isPasswordValid) {
-      //   return { error: 'Invalid credentials' }; // Return an error message instead of throwing an exception
-      // }
+      if (!isPasswordValid) {
+        return { error: 'Invalid credentials' }; // Return an error message instead of throwing an exception
+      }
   
       const token = this.jwtService.sign({ username: user.username }, { expiresIn: '8h' });
       return { token }; // Return the signed JWT token upon successful validation
