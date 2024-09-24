@@ -14,7 +14,7 @@ export class AuthService {
   // User Registration (Sign-up)
   async registerUser(userData) {
     try {
-      const hashedPassword = await bcrypt.hash(userData.password, 10);
+      const hashedPassword = userData.password;
       const newUser = await this.userService.createUser({ ...userData, password: hashedPassword });
       return newUser;
     } catch (error) {
@@ -39,11 +39,7 @@ export class AuthService {
       
       // Password validation (uncomment these lines when you integrate real password logic)
       const trimmedPassword = password.trim();
-      const isPasswordValid = await bcrypt.compare(password, user.password);
-      console.log('isPasswordValid',user.password);
-   console.log('trimmedPassword',trimmedPassword);
-
-   
+      const isPasswordValid = trimmedPassword === user.password;   
       if (!isPasswordValid) {
         return { error: 'Invalid credentials' }; // Return an error message instead of throwing an exception
       }
