@@ -1,0 +1,9 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "api": "apps/api",
+    "monorepo": "apps/monorepo",
+    "monorepo-e2e": "apps/monorepo-e2e"
+  }
+}
