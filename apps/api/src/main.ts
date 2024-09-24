@@ -10,7 +10,7 @@ async function bootstrap() {
 
   // Enable CORS
   app.enableCors({
-    origin: 'http://35.178.187.169:4200', // Specify the Angular frontend URL here
+    origin: 'http://35.178.187.169', // Specify the Angular frontend URL here
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
   });
