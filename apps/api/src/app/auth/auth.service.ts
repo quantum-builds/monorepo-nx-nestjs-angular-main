@@ -39,8 +39,8 @@ export class AuthService {
       
       // Password validation (uncomment these lines when you integrate real password logic)
       const trimmedPassword = password.trim();
-      const isPasswordValid = await bcrypt.compare(trimmedPassword, user.password);
-   console.log('isPasswordValid',isPasswordValid);
+      const isPasswordValid = await bcrypt.compare(password, user.password);
+      console.log('isPasswordValid',user.password);
    console.log('trimmedPassword',trimmedPassword);
 
    
